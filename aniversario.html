@@ -1,198 +1,339 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Orçamento · Aniversário Adulto — SoulFrame</title>
-<meta name="description" content="Orçamento de cobertura fotográfica para aniversário adulto — SoulFrame, fotografia com alma em São Paulo.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --navy:#22214f;
-    --navy-2:#2c2b5e;
-    --pink:#cf5fa3;
-    --pink-soft:#f3bce4;
-    --grad:linear-gradient(105deg,#d5e4b9 0%,#e7dcc9 36%,#f3bce4 72%,#feacf6 100%);
-    --gold:var(--pink);
-    --gold-soft:var(--pink-soft);
-    --ink:#2a2730;
-    --ink-soft:#6b6675;
-    --line:#e7e3da;
-    --paper:#ffffff;
-    --bg:#faf8f3;
-    --green:#1f7a4d;
-    --serif:"Fraunces",Georgia,serif;
-    --sans:"Archivo",-apple-system,system-ui,sans-serif;
-    --maxw:980px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--sans);color:var(--ink);background:var(--bg);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
-  ::selection{background:var(--pink);color:#fff}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px}
-  .serif{font-family:var(--serif)}
-  .eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:600}
-
-  /* reveal animation */
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-  .reveal.in{opacity:1;transform:none}
-  .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
-
-  /* ============ HERO / CAPA ============ */
-  .hero{background:var(--navy);color:#fff;position:relative;overflow:hidden}
-  .hero::after{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(226,169,52,.20),transparent 70%);pointer-events:none}
-  .hero .wrap{padding-top:54px;padding-bottom:58px;position:relative;z-index:2}
-  .hero-grid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
-  .hero-logo{width:220px;height:220px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;box-shadow:0 24px 50px -20px rgba(0,0,0,.45);flex-shrink:0}
-  .hero-logo img{width:62%;height:auto;mix-blend-mode:multiply}
-  .brand{display:flex;align-items:baseline;gap:9px;font-family:var(--serif);font-size:26px;letter-spacing:.02em}
-  .brand b{font-weight:500}
-  .brand .soul{color:#fff}
-  .brand .frame{color:var(--gold-soft)}
-  .brand .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);align-self:center}
-  .cred{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:22px;font-size:12px;letter-spacing:.04em;color:rgba(255,255,255,.82)}
-  .cred span{display:inline-flex;align-items:center;gap:8px}
-  .cred svg{color:var(--gold-soft)}
-  .hero .kick{margin-top:30px;color:var(--gold-soft)}
-  .hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(34px,6vw,54px);line-height:1.05;letter-spacing:-.01em;margin-top:12px;max-width:18ch}
-  .hero h1 em{font-style:italic;color:var(--gold-soft)}
-  .hero .sub{margin-top:18px;font-size:15px;color:rgba(255,255,255,.8);max-width:56ch;line-height:1.6}
-
-  /* ============ SECTION BASE ============ */
-  section{padding:56px 0}
-  .sec-label{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px}
-  h2.title{font-family:var(--serif);font-weight:300;font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.01em}
-  h2.title em{font-style:italic;color:var(--gold)}
-
-  /* ============ BIO ============ */
-  .bio{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .bio-grid{display:grid;grid-template-columns:1fr 220px;gap:44px;align-items:center}
-  .bio-photo{margin:0}
-  .bio-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;border:1px solid var(--line);box-shadow:0 18px 40px -22px rgba(36,31,27,.4)}
-  .bio h3{font-family:var(--serif);font-weight:400;font-size:clamp(24px,3.4vw,32px);margin:6px 0 16px}
-  .bio h3 em{font-style:italic;color:var(--gold)}
-  .bio p{color:var(--ink-soft);font-size:15px;max-width:66ch;margin-bottom:14px}
-  .bio p b{color:var(--ink);font-weight:600}
-  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-  .tags span{border:1px solid var(--line);border-radius:30px;padding:8px 16px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
-
-  /* ============ BRIEFING ============ */
-  .brief{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;margin-top:6px}
-  .brief-item{display:flex;gap:14px;align-items:flex-start}
-  .brief-item .ic{flex-shrink:0;width:38px;height:38px;border-radius:9px;background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--navy)}
-  .brief-item .t{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
-  .brief-item .v{font-size:16px;color:var(--ink);font-family:var(--serif);margin-top:2px}
-
-  /* ============ INCLUSO ============ */
-  .incl{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:30px 30px;margin-top:30px}
-  .incl h3{font-family:var(--serif);font-weight:400;font-size:22px;margin-bottom:4px}
-  .incl .note{font-size:13.5px;color:var(--ink-soft);margin-bottom:20px}
-  .incl-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px 28px}
-  .chk{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:var(--ink);line-height:1.4}
-  .chk svg{flex-shrink:0;color:var(--gold);margin-top:3px}
-  .chk b{font-weight:600}
-
-  /* ============ PREÇOS ============ */
-  .price-intro{max-width:60ch;color:var(--ink-soft);font-size:15px;margin-top:14px}
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:34px;align-items:stretch}
-  .card{border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;background:var(--paper);transition:transform .4s ease,box-shadow .4s ease}
-  .card:hover{transform:translateY(-4px)}
-  .card.feat{border-color:var(--gold);box-shadow:0 20px 48px -28px rgba(226,169,52,.55)}
-  .card-head{padding:22px 26px;color:#fff;position:relative}
-  .card.basic .card-head{background:var(--navy)}
-  .card.feat .card-head{background:var(--grad)}
-  .card-head .kick{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.9}
-  .card.feat .card-head .kick{color:var(--navy);opacity:.7}
-  .card-head h3{font-family:var(--serif);font-weight:500;font-size:23px;line-height:1.15;margin-top:6px}
-  .card.feat .card-head h3{color:var(--navy)}
-  .badge{position:absolute;top:18px;right:24px;background:#fff;color:var(--navy);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;border-radius:30px}
-  .card-body{padding:24px 26px 26px;flex-grow:1;display:flex;flex-direction:column}
-  .per{font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
-  .price-line{display:flex;align-items:baseline;gap:11px;margin-top:3px}
-  .price-old{font-size:17px;color:var(--ink-soft);text-decoration:line-through;font-weight:300}
-  .price-new{font-family:var(--serif);font-size:40px;color:var(--navy);line-height:1;font-weight:500}
-  .card.feat .price-new{color:#b8478e}
-  .price-new small{font-size:15px;font-family:var(--sans);color:var(--ink-soft)}
-  .subnote{margin-top:8px;font-size:12.5px;color:var(--green);font-weight:500}
-  .subnote.muted{color:var(--ink-soft);font-weight:400}
-  .total{margin-top:16px;padding:13px 17px;background:var(--bg);border:1px solid var(--line);border-radius:11px;display:flex;justify-content:space-between;align-items:center}
-  .card.feat .total{background:#fdeef7;border-color:#f3cfe6}
-  .total .lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
-  .total .amt{font-family:var(--serif);font-size:23px;color:var(--ink);font-weight:500}
-  .feats{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:11px;flex-grow:1}
-  .feats li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink);line-height:1.4}
-  .feats svg{flex-shrink:0;color:var(--gold);margin-top:2px}
-  .feats li.off{color:var(--ink-soft)}
-  .feats li.off svg{color:#c9c4bb}
-  .card-cta{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:22px;padding:15px 20px;border-radius:10px;font-size:13.5px;font-weight:600;letter-spacing:.04em;transition:all .3s ease;cursor:pointer;border:none}
-  .card.basic .card-cta{background:var(--navy);color:#fff}
-  .card.basic .card-cta:hover{background:var(--navy-2)}
-  .card.feat .card-cta{background:var(--grad);color:var(--navy);font-weight:700}
-  .card.feat .card-cta:hover{filter:brightness(1.04)}
-  .card-cta svg{flex-shrink:0}
-
-  .legend{margin-top:28px;font-size:13px;color:var(--ink-soft);line-height:1.75;max-width:80ch}
-  .legend b{color:var(--ink)}
-
-  /* ============ COMO FUNCIONA ============ */
-  .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
-  .step{background:var(--navy);color:#fff;border-radius:13px;padding:22px 22px}
-  .step .n{font-family:var(--serif);font-size:30px;color:var(--gold-soft);line-height:1}
-  .step .st{font-size:14px;margin-top:10px;line-height:1.5;color:rgba(255,255,255,.86)}
-
-  /* ============ CTA FINAL ============ */
-  .final{background:var(--navy);color:#fff;text-align:center;position:relative;overflow:hidden}
-  .final::after{content:"";position:absolute;left:50%;top:-80px;width:420px;height:300px;transform:translateX(-50%);background:radial-gradient(circle,rgba(226,169,52,.16),transparent 70%);pointer-events:none}
-  .final .wrap{position:relative;z-index:2}
-  .final h2{font-family:var(--serif);font-weight:300;font-size:clamp(28px,4.5vw,44px);line-height:1.08}
-  .final h2 em{font-style:italic;color:var(--gold-soft)}
-  .final p{color:rgba(255,255,255,.78);max-width:48ch;margin:16px auto 28px;font-size:15px}
-  .btn-gold{display:inline-flex;align-items:center;gap:10px;background:var(--grad);color:var(--navy);font-weight:700;font-size:14px;letter-spacing:.04em;padding:16px 34px;border-radius:10px;transition:all .3s ease;border:none;cursor:pointer}
-  .btn-gold:hover{filter:brightness(1.05);transform:translateY(-2px)}
-
-  /* ============ RODAPÉ ============ */
-  footer{background:var(--bg);border-top:1px solid var(--line);padding:34px 0}
-  .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-  .foot .who b{font-family:var(--serif);color:var(--ink);font-weight:500;font-size:16px}
-  .foot .who{color:var(--ink-soft);font-size:13.5px;line-height:1.7}
-  .foot .valid{font-size:11.5px;color:var(--ink-soft);max-width:42ch}
-
-  /* ============ RESPONSIVO ============ */
-  @media(max-width:720px){
-    .hero-grid{grid-template-columns:1fr;gap:30px}
-    .hero-logo{width:140px;height:140px;order:-1}
-    .bio-grid{grid-template-columns:1fr;gap:28px}
-    .bio-photo{max-width:240px}
-    .brief{grid-template-columns:1fr}
-    .incl-grid{grid-template-columns:1fr}
-    .cards{grid-template-columns:1fr}
-    .steps-grid{grid-template-columns:1fr}
-    .foot{flex-direction:column;align-items:flex-start}
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento · Aniversário Adulto — SoulFrame</title>
+    <meta name="description" content="Orçamento de cobertura fotográfica para aniversário adulto — SoulFrame, fotografia com alma em São Paulo.">
+    <!-- ============================================================
+    COMO EDITAR ESTA PÁGINA (leia antes de mexer)
+    ============================================================
+    1) DADOS DE CONTATO: vá até o final do arquivo, no bloco <script> marcado "CONFIGURE AQUI". Lá você troca o número de WhatsApp e o @ do Instagram de uma vez só — todos os botões da página usam esses valores automaticamente.
+    2) VALORES E TEXTOS: estão marcados ao longo do HTML com comentários começando por "EDITAR:". É só trocar o texto que fica logo depois deles.
+    3) REAPROVEITAR PARA OUTRO CLIENTE: troque o local, a data, os valores e o número de convidados. As seções "Quem está por trás da câmera" e "Como funciona" já são genéricas e servem para qualquer orçamento.
+    ============================================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --navy:#22214f;
+            --navy-2:#2c2b5e;
+            /* ROSA DA SOULFRAME */
+            --pink:#cf5fa3;
+            /* rosa legível p/ textos, ícones e preços sobre fundo claro */
+            --pink-soft:#f3bce4;
+            /* rosa claro p/ destaques sobre o fundo marinho */
+            --grad:linear-gradient(105deg,#d5e4b9 0%,#e7dcc9 36%,#f3bce4 72%,#feacf6 100%);
+            /* gradiente da marca */
+            /* aliases antigos (mantidos apontando p/ o rosa, p/ não quebrar nada) */
+            --gold:var(--pink);
+            --gold-soft:var(--pink-soft);
+            --ink:#2a2730;
+            --ink-soft:#6b6675;
+            --line:#e7e3da;
+            --paper:#ffffff;
+            --bg:#faf8f3;
+            --green:#1f7a4d;
+            --serif:"Fraunces",Georgia,serif;
+            --sans:"Archivo",-apple-system,system-ui,sans-serif;
+            --maxw:980px;
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:var(--sans);color:var(--ink);background:var(--bg);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
+        ::selection{background:var(--pink);color:#fff}
+        a{color:inherit;text-decoration:none}
+        .wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px}
+        .serif{font-family:var(--serif)}
+        .eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:600}
+        /* reveal animation */
+        .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+        .reveal.in{opacity:1;transform:none}
+        .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+        /* ==== HEADER ==== */
+        header{background:var(--paper);border-bottom:1px solid var(--line);padding:20px 0;position:sticky;top:0;z-index:100}
+        header .wrap{display:flex;justify-content:space-between;align-items:center}
+        .logo{font-family:var(--serif);font-size:18px;font-weight:500;letter-spacing:.05em}
+        .logo-sub{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px}
+        .nav-right{display:flex;gap:20px;align-items:center}
+        .nav-link{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);transition:color .3s}
+        .nav-link:hover{color:var(--pink)}
+        .btn-header{background:var(--pink);color:#fff;padding:8px 16px;border-radius:3px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;transition:opacity .3s}
+        .btn-header:hover{opacity:.9}
+        /* ==== HERO ==== */
+        .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:80px 0;text-align:center}
+        .hero .wrap{max-width:700px}
+        .hero .eyebrow{color:var(--pink-soft);margin-bottom:15px}
+        .hero h1{font-family:var(--serif);font-size:48px;font-weight:400;line-height:1.2;margin-bottom:20px}
+        .hero p{font-size:16px;line-height:1.7;opacity:.95;margin-bottom:30px}
+        .hero .meta{display:flex;justify-content:center;gap:30px;font-size:13px;opacity:.8;flex-wrap:wrap}
+        .meta-item{display:flex;align-items:center;gap:8px}
+        /* ==== INTRO SECTION ==== */
+        .intro{padding:80px 0;background:var(--paper)}
+        .intro .wrap{max-width:700px}
+        .intro h2{font-family:var(--serif);font-size:32px;font-weight:400;margin-bottom:20px;color:var(--ink)}
+        .intro p{font-size:16px;line-height:1.8;color:var(--ink-soft);margin-bottom:15px}
+        /* ==== ABOUT SECTION ==== */
+        .about{padding:80px 0;background:var(--bg)}
+        .about h2{font-family:var(--serif);font-size:32px;font-weight:400;margin-bottom:40px;color:var(--ink)}
+        .about p{font-size:15px;line-height:1.8;color:var(--ink-soft);margin-bottom:15px}
+        /* ==== DETAILS SECTION ==== */
+        .details{padding:80px 0;background:var(--paper)}
+        .details h2{font-family:var(--serif);font-size:32px;font-weight:400;margin-bottom:40px;color:var(--ink)}
+        .details-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+        .detail-card{background:var(--bg);padding:30px;border-radius:8px;border:1px solid var(--line)}
+        .detail-card .label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;font-weight:600}
+        .detail-card .value{font-size:18px;font-weight:500;color:var(--ink)}
+        /* ==== FEATURES SECTION ==== */
+        .features{padding:80px 0;background:var(--bg)}
+        .features h2{font-family:var(--serif);font-size:32px;font-weight:400;margin-bottom:40px;color:var(--ink)}
+        .features-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+        .feature-item{padding:20px 0;border-bottom:1px solid var(--line)}
+        .feature-item:last-child{border-bottom:none}
+        .feature-item h3{font-size:16px;font-weight:600;margin-bottom:8px;color:var(--ink)}
+        .feature-item p{font-size:14px;color:var(--ink-soft);line-height:1.6}
+        /* ==== PRICING SECTION ==== */
+        .pricing{padding:80px 0;background:var(--paper)}
+        .pricing h2{font-family:var(--serif);font-size:32px;font-weight:400;margin-bottom:50px;color:var(--ink);text-align:center}
+        .pricing-container{max-width:600px;margin:0 auto}
+        .price-box{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:50px;border-radius:8px;text-align:center;margin-bottom:30px}
+        .price-box .label{font-size:13px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:15px;opacity:.9}
+        .price-box .amount{font-family:var(--serif);font-size:56px;font-weight:400;margin-bottom:20px}
+        .price-box .description{font-size:14px;line-height:1.6;opacity:.9;margin-bottom:30px}
+        .price-box ul{text-align:left;list-style:none;margin-bottom:30px;font-size:14px;line-height:1.8}
+        .price-box li:before{content:"✓ ";color:var(--pink-soft);font-weight:600;margin-right:8px}
+        .btn-primary{background:var(--pink);color:#fff;padding:14px 32px;border-radius:3px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;border:none;cursor:pointer;transition:opacity .3s;display:inline-block;text-decoration:none}
+        .btn-primary:hover{opacity:.9}
+        /* ==== HOW IT WORKS ==== */
+        .how{padding:80px 0;background:var(--bg)}
+        .how h2{font-family:var(--serif);font-size:32px;font-weight:400;margin-bottom:50px;color:var(--ink);text-align:center}
+        .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px}
+        .step{text-align:center}
+        .step-number{font-family:var(--serif);font-size:48px;font-weight:400;color:var(--pink);margin-bottom:15px}
+        .step h3{font-size:18px;font-weight:600;margin-bottom:12px;color:var(--ink)}
+        .step p{font-size:14px;color:var(--ink-soft);line-height:1.6}
+        /* ==== CTA SECTION ==== */
+        .cta{padding:80px 0;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;text-align:center}
+        .cta h2{font-family:var(--serif);font-size:36px;font-weight:400;margin-bottom:20px}
+        .cta p{font-size:16px;opacity:.95;margin-bottom:30px}
+        /* ==== FOOTER ==== */
+        footer{background:var(--paper);border-top:1px solid var(--line);padding:40px 0;text-align:center;font-size:13px;color:var(--ink-soft)}
+        /* ==== RESPONSIVE ==== */
+        @media(max-width:768px){
+            .hero h1{font-size:32px}
+            .hero .meta{flex-direction:column;gap:15px}
+            .nav-right{flex-direction:column;gap:10px}
+            .details-grid,.features-list,.steps{grid-template-columns:1fr}
+            .price-box{padding:30px}
+            .price-box .amount{font-size:42px}
+        }
+    </style>
 </head>
 <body>
+    <!-- HEADER -->
+    <header>
+        <div class="wrap">
+            <div class="logo">
+                SoulFrame
+                <div class="logo-sub">Fotografia</div>
+            </div>
+            <div class="nav-right">
+                <a href="https://soulframefotografia.github.io/Portfolio/" class="nav-link">Voltar ao portfólio</a>
+                <button class="btn-header" onclick="scrollToContact()">Orçamento</button>
+            </div>
+        </div>
+    </header>
 
-<!-- ============ HERO / CAPA ============ -->
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-text">
-      <a class="brand" href="https://soulframefotografia.github.io/Portfolio/"><b class="soul">Soul</b><span class="dot"></span><b class="frame">Frame</b></a>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="wrap">
+            <div class="eyebrow reveal d1">Orçamento · Aniversário</div>
+            <h1 class="reveal d2">Aniversário Adulto — cobertura fotográfica completa</h1>
+            <p class="reveal d3">Fotógrafo desde 2019 · Fotografia · edição · filmmaker · São Paulo · SP</p>
+            <div class="meta reveal d1">
+                <div class="meta-item">📍 Vila Leopoldina</div>
+                <div class="meta-item">⏱️ 5 horas</div>
+                <div class="meta-item">📸 Cobertura completa</div>
+            </div>
+        </div>
+    </section>
 
-      <div class="cred reveal in">
-        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Fotógrafo desde 2019</span>
-        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Fotografia · edição · filmmaker</span>
-        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg> São Paulo · SP</span>
-      </div>
+    <!-- INTRO -->
+    <section class="intro">
+        <div class="wrap">
+            <h2>Proposta personalizada</h2>
+            <p>Cobertura fotográfica completa de 5 horas para aniversário adulto em salão de festas. Registramos os momentos espontâneos, as interações com convidados, os detalhes que fazem a festa ser inesquecível — tudo com a qualidade e sensibilidade que definem a SoulFrame.</p>
+            <p>Você não apenas ganha fotos; ganha a memória de viver aquele dia através do nosso olhar.</p>
+        </div>
+    </section>
 
-      <div class="eyebrow kick reveal in d1">Orçamento · Aniversário</div>
-      <h1 class="reveal in d1">Aniversário <em>Adulto</em> — cobertura completa</h1>
-      <p class="sub reveal in d2">Cobertura de 5 horas para registrar cada detalhe, sorriso e emoção da sua festa. Fotos espontâneas e posadas com a sensibilidade e qualidade que definem a SoulFrame.</p>
-    </div>
+    <!-- ABOUT -->
+    <section class="about">
+        <div class="wrap">
+            <h2>Quem está por trás da câmera</h2>
+            <p>Há 4 anos transformo momentos em memória. Comecei no audiovisual em 2019 e, desde então, atuo como fotógrafo, editor, filmmaker e social media — uma visão completa que vai do clique à edição, do ensaio ao conteúdo que ganha as redes.</p>
+            <p>Já fotografei ensaios corporativos, eventos, retratos autorais e muito mais. Cada projeto é conduzido com olhar técnico e sensibilidade, para que o resultado seja sempre natural e verdadeiro. Mais do que registrar, eu gosto de contar histórias — a sua.</p>
+        </div>
+    </section>
 
-    <div class="hero-logo reveal in d2">
-      <img src="data:image/png;base64,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
+    <!-- DETAILS -->
+    <section class="details">
+        <div class="wrap">
+            <h2>O evento de vocês</h2>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="label">Local</div>
+                    <div class="value">Salão de festas do condomínio</div>
+                </div>
+                <div class="detail-card">
+                    <div class="label">Horário</div>
+                    <div class="value">16h às 21h</div>
+                </div>
+                <div class="detail-card">
+                    <div class="label">Duração</div>
+                    <div class="value">5 horas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+        <div class="wrap">
+            <h2>O que está incluso</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <h3>✨ Cobertura completa</h3>
+                    <p>5 horas de fotografia contínua, capturando todos os momentos importantes do evento.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>📸 Registros espontâneos</h3>
+                    <p>Fotos das principais interações, momentos especiais e detalhes que definem a festa.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>👥 Fotos em grupo</h3>
+                    <p>Registros individuais, em família e com os convidados — a sua história completa.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🎨 Edição profissional</h3>
+                    <p>Seleção e tratamento de cor, luz e nitidez em todas as imagens entregues.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>💾 Alta resolução</h3>
+                    <p>Entrega em galeria digital personalizada, pronta para compartilhar e imprimir.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>⏰ Entrega rápida</h3>
+                    <p>Fotos editadas e prontas para download em até 4 dias úteis após o evento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing">
+        <div class="wrap">
+            <h2>Investimento</h2>
+            <div class="pricing-container">
+                <div class="price-box">
+                    <div class="label">Cobertura fotográfica · 5 horas</div>
+                    <div class="amount">R$ 650,00</div>
+                    <div class="description">Tudo incluso: cobertura completa, edição profissional e entrega em alta resolução.</div>
+                    <ul>
+                        <li>5 horas de cobertura fotográfica</li>
+                        <li>Fotos espontâneas e em grupo</li>
+                        <li>Edição profissional</li>
+                        <li>Entrega em galeria digital</li>
+                        <li>Prazo: até 4 dias úteis</li>
+                    </ul>
+                    <button class="btn-primary" onclick="sendWhatsApp()">Reservar agora</button>
+                </div>
+                <div style="text-align:center;font-size:14px;color:var(--ink-soft);margin-top:30px">
+                    <p><strong>Condições de pagamento:</strong><br>PIX, transferência ou cartão (consultar parcelamento)</p>
+                    <p style="margin-top:15px;font-size:12px">A reserva da data é confirmada mediante pagamento de sinal ou valor integral.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how">
+        <div class="wrap">
+            <h2>Como funciona</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Você me chama</h3>
+                    <p>Clique no botão "Reservar agora" e vamos conversar sobre os detalhes do seu aniversário.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>No dia do evento</h3>
+                    <p>Eu chego pronto para registrar cada momento — desde a chegada dos convidados até o final da festa.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Fotos prontas</h3>
+                    <p>Em até 4 dias úteis, você recebe todas as fotos editadas em uma galeria digital de fácil acesso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+        <div class="wrap">
+            <h2>Vamos eternizar esse momento?</h2>
+            <p>Cada quadro guarda uma alma. Vamos guardar a sua.</p>
+            <button class="btn-primary" onclick="sendWhatsApp()">Falar no WhatsApp</button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="wrap">
+            <p>SoulFrame Fotografia © 2026 · Fabricyo Dias · São Paulo · SP</p>
+            <p style="margin-top:10px;font-size:12px">Fotografia com alma · Transformando momentos em eternidade</p>
+        </div>
+    </footer>
+
+    <script>
+        /* ============================================================
+        CONFIGURE AQUI
+        ============================================================
+        Troque o número de WhatsApp e o @ do Instagram abaixo.
+        Todos os botões da página usarão esses valores automaticamente.
+        ============================================================ */
+        const WHATSAPP_NUMBER = "5511999999999"; // EDITAR: coloque seu número aqui (com código do país e DDD, sem espaços)
+        const INSTAGRAM_HANDLE = "@soulframefotografia"; // EDITAR: coloque seu @ do Instagram
+
+        function sendWhatsApp() {
+            const message = "Oi! Gostaria de saber mais sobre a cobertura fotográfica para aniversário adulto. Qual seria o próximo passo?";
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, "_blank");
+        }
+
+        function scrollToContact() {
+            document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+        }
+
+        // Reveal animation on scroll
+        const revealElements = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("in");
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
+
+        // Add reveal class to hero elements on load
+        window.addEventListener("load", () => {
+            document.querySelectorAll(".hero .reveal").forEach(el => el.classList.add("in"));
+        });
+    </script>
+</body>
+</html>
